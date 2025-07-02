@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>心の声</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="contenedor">
+    <h1>心が空っぽだとおっしゃる……</h1>
+    <p>正直に答えてください。あなたの心はきっと応えてくれるでしょう</p>
+
+    <!-- ❤️ ハートのSVG -->
+    <div class="svg-corazon">
+      <svg viewBox="0 0 200 200" width="200" height="200">
+        <defs>
+          <clipPath id="clip-heart">
+            <path d="
+              M100,180
+              C20,120 20,50 60,40
+              C90,35 100,60 100,60
+              C100,60 110,35 140,40
+              C180,50 180,120 100,180
+            " />
+          </clipPath>
+          <linearGradient id="grad" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stop-color="#ff4d6d" />
+            <stop offset="100%" stop-color="#ff85a2" />
+          </linearGradient>
+        </defs>
+
+        <!-- ハートの塗り部分 -->
+        <rect id="corazonLleno" x="0" y="200" width="200" height="200"
+              fill="url(#grad)" clip-path="url(#clip-heart)" />
+
+        <!-- ハートの輪郭 -->
+        <path d="
+              M100,180
+              C20,120 20,50 60,40
+              C90,35 100,60 100,60
+              C100,60 110,35 140,40
+              C180,50 180,120 100,180
+            " fill="none" stroke="#aaa" stroke-width="4" />
+      </svg>
+    </div>
+
+    <!-- 質問エリア -->
+    <div class="pregunta-box">
+      <p id="preguntaTexto"></p>
+      <div class="botones-respuesta">
+        <button onclick="responder('si')">はい</button>
+        <button onclick="responder('no')">いいえ</button>
+      </div>
+    </div>
+
+    <!-- 進捗テキスト -->
+    <p id="progresoText">あなたの心は空っぽです (0%)</p>
+
+    <!-- 最終メッセージ -->
+    <div class="mensaje-final" id="mensajeFinal" style="display:none;">
+      <h2>見て？心は完全に空じゃなかった。</h2>
+      <p>本音を分かち合ってくれてありがとう。</p>
+    </div>
+
+    <!-- 日記エリア -->
+    <div class="diario-box" id="diarioBox" style="display:none;">
+      <p>まだ口にできない想いを、ここに書いてみませんか？</p>
+      <textarea id="entradaDiario" placeholder="ここに書いてください…" rows="5"></textarea>
+      <button onclick="guardarDiario()">私の日記に保存する</button>
+      <p id="diarioGuardado" style="display:none; color: #ccc;">あなたの内なる場所に保存されました。共有してくれてありがとう。</p>
+    </div>
+
+    <!-- 小さなお願いリスト -->
+    <div class="cosas-que-puedes-pedir" id="cosasBox" style="display:none;">
+      <p><strong>🌼 マルクにそっとお願いできる小さなことたち</strong></p>
+      <p style="font-size: 0.9em; color: #aaa;">（これらの願いはマルクに届けられます。彼は静かに、でも確かにあなたを聴いています。）</p>
+
+      <form id="formPedidos">
+        <label><input type="checkbox" name="pedido" value="Un abrazo muy largo y silencioso" /> 言い訳のいらない、長くて静かなハグ</label><br />
+        <label><input type="checkbox" name="pedido" value="Un día donde el miedo no gane" /> 恐れに負けない一日</label><br />
+        <label><input type="checkbox" name="pedido" value="Alguien que se quede incluso en el silencio" /> 沈黙の中でもそばにいてくれる誰か</label><br />
+        <label><input type="checkbox" name="pedido" value="Dormir sin recuerdos dolorosos" /> 苦しい記憶に邪魔されない眠り</label><br />
+        <label><input type="checkbox" name="pedido" value="Reír sin sentir que haces algo mal" /> 罪悪感なしに笑える瞬間</label><br />
+        <label><input type="checkbox" name="pedido" value="Poder llorar sin esconderte" /> 隠れずに泣けること</label><br />
+        <label><input type="checkbox" name="pedido" value="Sentirte suficiente sin tener que demostrarlo" /> 証明しなくても「じゅうぶん」と思える気持ち</label><br />
+        <label><input type="checkbox" name="pedido" value="Un espacio seguro para solo ser tú" /> 「大丈夫」と言わなくていい、ありのままでいられる場所</label><br />
+      </form>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
